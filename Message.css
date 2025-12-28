@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.message_form {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e8ed;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header h1 {
+    font-size: 1.3rem;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.header h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #9b48bf;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #777;
+    font-style: italic;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.form_group {
+    margin-bottom: 20px;
+}
+
+.form_group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+textarea, #sender_name {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+    background-color: white;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+textarea:focus, #sender_name:focus {
+    outline: none;
+    border-color: #9b48bf;
+    box-shadow: 0 0 0 3px rgba(155, 72, 191, 0.1);
+}
+
+.submit_button {
+    background: linear-gradient(to right, #9b48bf, #7c3799);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s;
+}
+
+.submit_button:hover:not(:disabled) {
+    background: linear-gradient(to right, #8a3cab, #6b2d85);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(155, 72, 191, 0.3);
+}
+
+.submit_button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.messages_container {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e8ed;
+}
+
+.messages_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.messages_header h3 {
+    color: #333;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.message_count {
+    color: #666;
+    font-weight: 500;
+}
+
+.message_count span {
+    color: #9b48bf;
+    font-weight: 700;
+}
+
+.messages_list {
+    min-height: 200px;
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.empty_message {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.empty_message i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+.empty_message p {
+    margin-bottom: 5px;
+}
+
+.message_item {
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid #9b48bf;
+    transition: transform 0.3s;
+}
+
+.message_item:hover {
+    transform: translateX(5px);
+    background: #f5f0f9;
+}
+
+.message_content {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #444;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.message_meta {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+.message_number {
+    font-weight: 600;
+    color: #9b48bf;
+}
+
+.message_time {
+    font-style: italic;
+}
+
+.messages_controls {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.refresh_button {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+    background-color: #e8f4ff;
+    color: #2a7de1;
+    border: 1px solid #c3dfff;
+}
+
+.refresh_button:hover:not(:disabled) {
+    background-color: #d9ebff;
+    transform: translateY(-2px);
+}
+
+.refresh_button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+.input_note {
+    display: block;
+    color: #888;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.form_options {
+    margin-bottom: 20px;
+}
+
+.checkbox_container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.checkbox_container input {
+    display: none;
+}
+
+.checkmark {
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.checkbox_container:hover .checkmark {
+    background-color: #ddd;
+}
+
+.checkbox_container input:checked ~ .checkmark {
+    background-color: #9b48bf;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox_container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.anonymous_badge {
+    display: inline-block;
+    background-color: #e0e0e0;
+    color: #666;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-left: 8px;
+    font-style: italic;
+}
+
+.message_sender {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #9b48bf;
+}
+
+.message_sender i {
+    margin-right: 6px;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .message_form, .messages_container {
+        padding: 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.1rem;
+    }
+    
+    .header h2 {
+        font-size: 2rem;
+    }
+    
+    .messages_header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .messages_controls {
+        flex-direction: column;
+    }
+}

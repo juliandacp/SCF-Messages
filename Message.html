@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message to SCF 2026</title>
+    <link rel="stylesheet" href="Message.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="message_form">
+            <div class="header">
+                <h1><i class="fas fa-message"></i> SEND MESSAGE TO</h1>
+                <h2><span class="highlight">SCF 2026</span></h2>
+                <p class="subtitle">Your message will be very valuable to us [:</p>
+            </div>
+            
+            <form id="message_form">
+                <div class="form_group">
+                    <label for="sender_name">Your Name (Optional)</label>
+                    <input type="text" id="sender_name" name="name" placeholder="Anonymous">
+                    <small class="input_note">Kosongkan jika ingin tetap anonim</small>
+                </div>
+                
+                <div class="form_group">
+                    <label for="message_input">Write Message</label>
+                    <textarea id="message_input" name="message" rows="4" placeholder="Tulis pesanmu di sini..." required></textarea>
+                </div>
+                
+                <div class="form_options">
+                    <label class="checkbox_container">
+                        <input type="checkbox" id="anonymous_checkbox" checked>
+                        <span class="checkmark"></span>
+                        Send as Anonymous
+                    </label>
+                </div>
+                
+                <button type="submit" class="submit_button" id="submit_button">
+                    <i class="fas fa-paper-plane"></i> Submit Message
+                </button>
+            </form>
+        </div>
+
+        <div class="messages_container">
+            <div class="messages_header">
+                <h3><i class="fas fa-history"></i> Live Messages</h3>
+                <p class="message_count">Messages: <span id="count">0</span></p>
+            </div>
+            
+            <div id="messages_list" class="messages_list">
+                <div class="empty_message">
+                    <i class="fas fa-comment-slash"></i>
+                    <p>Belum ada pesan yang dikirim.</p>
+                    <p>Jadilah yang pertama mengirim pesan!</p>
+                </div>
+            </div>
+            
+            <div class="messages_controls">
+                <button id="refresh_button" class="refresh_button">
+                    <i class="fas fa-sync-alt"></i> Refresh Messages
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="Message.js"></script>
+</body>
+</html>
