@@ -13,20 +13,19 @@
     <div class="container">
         <div class="message_form">
             <div class="header">
-                <h1><i class="fas fa-message"></i> SEND MESSAGE TO</h1>
                 <h2><span class="highlight">SCF 2026</span></h2>
-                <p class="subtitle">Your message will be very valuable to us [:</p>
+                <p class="subtitle">Pesan apa yang ingin teman-teman sampaikan di SCF 2026?</p>
             </div>
             
             <form id="message_form">
                 <div class="form_group">
-                    <label for="sender_name">Your Name (Optional)</label>
+                    <label for="sender_name">Nama Anda (Opsional)</label>
                     <input type="text" id="sender_name" name="name" placeholder="Anonymous">
                     <small class="input_note">Kosongkan jika ingin tetap anonim</small>
                 </div>
                 
                 <div class="form_group">
-                    <label for="message_input">Write Message</label>
+                    <label for="message_input">Pesan Anda</label>
                     <textarea id="message_input" name="message" rows="4" placeholder="Tulis pesanmu di sini..." required></textarea>
                 </div>
                 
@@ -34,20 +33,20 @@
                     <label class="checkbox_container">
                         <input type="checkbox" id="anonymous_checkbox" checked>
                         <span class="checkmark"></span>
-                        Send as Anonymous
+                        Kirim sebagai Anonymous
                     </label>
                 </div>
                 
                 <button type="submit" class="submit_button" id="submit_button">
-                    <i class="fas fa-paper-plane"></i> Submit Message
+                    <i class="fas fa-paper-plane"></i> Kirim Pesan
                 </button>
             </form>
         </div>
 
         <div class="messages_container">
             <div class="messages_header">
-                <h3><i class="fas fa-history"></i> Live Messages</h3>
-                <p class="message_count">Messages: <span id="count">0</span></p>
+                <h3><i class="fas fa-history"></i> Semua Pesan</h3>
+                <p class="message_count">Pesan: <span id="count">0</span></p>
             </div>
             
             <div id="messages_list" class="messages_list">
@@ -58,11 +57,69 @@
                 </div>
             </div>
             
+            <div id="reply_template" class="reply_form_template">
+                <div class="reply_form">
+                    <div class="reply_header">
+                        <h4><i class="fas fa-reply"></i> Balas Pesan</h4>
+                        <button type="button" class="close_reply_btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="form_group">
+                        <label for="reply_name">Nama Anda (Optional)</label>
+                        <input type="text" class="reply_name_input" placeholder="Anonymous">
+                        <small class="input_note">Kosongkan jika ingin tetap anonim</small>
+                    </div>
+                    <div class="form_group">
+                        <label for="reply_content">Isi Balasan</label>
+                        <textarea class="reply_content_input" rows="3" placeholder="Tulis balasanmu di sini..." required></textarea>
+                    </div>
+                    <div class="form_options">
+                        <label class="checkbox_container">
+                            <input type="checkbox" class="reply_anonymous_checkbox" checked>
+                            <span class="checkmark"></span>
+                            Balas sebagai Anonymous
+                        </label>
+                    </div>
+                    <div class="reply_actions">
+                        <button type="button" class="cancel_reply_btn">Batal</button>
+                        <button type="button" class="submit_reply_btn">
+                            <i class="fas fa-paper-plane"></i> Kirim Balasan
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
             <div class="messages_controls">
                 <button id="refresh_button" class="refresh_button">
-                    <i class="fas fa-sync-alt"></i> Refresh Messages
+                    <i class="fas fa-sync-alt"></i> Refresh
                 </button>
             </div>
+        </div>
+    </div>
+
+    <div id="loading_modal" class="modal">
+        <div class="modal_content">
+            <div class="loading_spinner"></div>
+            <p>Mengirim pesan...</p>
+        </div>
+    </div>
+
+    <div id="success_modal" class="modal">
+        <div class="modal_content success">
+            <i class="fas fa-check-circle"></i>
+            <h3>Pesan Terkirim!</h3>
+            <p>Pesan Anda telah berhasil dikirim.</p>
+            <button class="modal_btn" onclick="closeSuccessModal()">OK</button>
+        </div>
+    </div>
+
+    <div id="error_modal" class="modal">
+        <div class="modal_content error">
+            <i class="fas fa-exclamation-circle"></i>
+            <h3>Terjadi Kesalahan</h3>
+            <p id="error_message">Gagal mengirim pesan. Silakan coba lagi.</p>
+            <button class="modal_btn" onclick="closeErrorModal()">OK</button>
         </div>
     </div>
 
